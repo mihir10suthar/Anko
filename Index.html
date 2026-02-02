@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Anko ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .card {
+      max-width: 520px;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .date {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 22px;
+    }
+
+    .reveal-btn {
+      background: rgba(255,255,255,0.25);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+    }
+
+    .fade {
+      opacity: 0;
+      transition: opacity 2.5s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+    }
+
+    .signature {
+      margin-top: 28px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -40px;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 0.6;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>For Anko ❤️</h1>
+
+    <div class="date">
+      Since 22nd February
+    </div>
+
+    <p>
+      Anko,<br><br>
+      Loving you feels calm and warm, like something my heart always knew it was missing.
+      In quiet moments and busy ones, you are the thought I come back to.
+      You make my days softer, my smiles easier, and my world more beautiful just by being in it.
+    </p>
+
+    <button class="reveal-btn" onclick="reveal()">Tap to reveal 💌</button>
+
+    <p id="hiddenMsg" class="fade">
+      I don’t need perfect days — I just need you.
+      And every day, in ways big and small, I choose you.
+    </p>
+
+    <div class="signature fade" id="signature">
+      — Mihir
+    </div>
+  </div>
+
+  <script>
+    function reveal() {
+      document.getElementById("hiddenMsg").classList.add("show");
+      document.getElementById("signature").classList.add("show");
+    }
+
+    const hearts = ["🤍","💗","💖"];
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 7 + Math.random() * 4 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 11000);
+    }, 600);
+  </script>
+
+</body>
+</html>
